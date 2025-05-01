@@ -1,1 +1,23 @@
+name: macOS Workflow
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          brew install node
+          node -v
+          npm -v
+
+      - name: Run a command
+        run: echo "Running on macOS"
